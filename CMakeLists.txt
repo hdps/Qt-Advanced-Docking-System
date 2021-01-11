@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 3.5)
 message("Adding ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules to MODULE_PATH: ${CMAKE_MODULE_PATH}")
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
 
+FILE(GLOB DIRFILES "${CMAKE_CURRENT_LIST_DIR}/*")
+string(REPLACE ";" "\n" PRINTLIST "${DIRFILES}")
+message(${PRINTLIST})
 
 find_package(Git QUIET)
 if (NOT GIT_FOUND)
